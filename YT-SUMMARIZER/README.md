@@ -1,6 +1,9 @@
 # YT-SUMMARIZER
 ## Description
 It will summarize the youtube video
+## Prerequisites
+- Provide Groq[https://groq.com] API key in .env file
+- 
 ## Installation
 ```bash
 python3 -m venv venv
