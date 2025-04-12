@@ -2,6 +2,9 @@ from phi.agent import Agent
 # from phi.model.ollama import Ollama
 from phi.tools.yfinance import YFinanceTools
 from phi.model.groq import Groq
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 # Define the model to be used by the agent
 model = Groq(id="qwen-2.5-32b")  # Replace with your preferred model
