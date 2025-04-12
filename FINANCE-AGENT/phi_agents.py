@@ -41,6 +41,8 @@ finance_agent = Agent(
             analyst_recommendations=True,
             company_info=True,
             company_news=True,
+            historical_prices=True,
+            stock_fundamentals=True,
         )
     ],
     instructions=["Use tables to display data"],
