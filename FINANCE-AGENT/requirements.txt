@@ -5,3 +5,4 @@ langgraph_supervisor==0.0.16
 phidata==2.7.10
 python-dotenv==1.1.0
 streamlit==1.44.1
+duckduckgo_search==8.0.0
