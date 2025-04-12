@@ -2,7 +2,6 @@ from phi.agent import Agent
 # from phi.model.ollama import Ollama
 from phi.tools.yfinance import YFinanceTools
 from phi.model.groq import Groq
-from phi.llm.groq import GroqChat
 
 from dotenv import load_dotenv
 from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
@@ -22,20 +21,20 @@ model = Groq(
         api_key=os.getenv("PORTKEY_API_KEY"),  # Replace with your Portkey API key
     ),
 )  # Replace with your preferred model
-llm = GroqChat(
-    base_url=PORTKEY_GATEWAY_URL,
-    api_key=os.getenv("GROQ_API_KEY"),  # Replace with Your Groq API Key
-    default_headers=createHeaders(
-        provider="groq",
-        api_key=os.getenv("PORTKEY_API_KEY"),  # Replace with your Portkey API key
-    ),
-)
+# llm = GroqChat(
+#     base_url=PORTKEY_GATEWAY_URL,
+#     api_key=os.getenv("GROQ_API_KEY"),  # Replace with Your Groq API Key
+#     default_headers=createHeaders(
+#         provider="groq",
+#         api_key=os.getenv("PORTKEY_API_KEY"),  # Replace with your Portkey API key
+#     ),
+# )
 
 # Create the Finance Agent
 finance_agent = Agent(
     name="Finance Agent",
     role="Get financial data",
-    model=llm,
+    model=model,
     tools=[
         YFinanceTools(
             stock_price=True,

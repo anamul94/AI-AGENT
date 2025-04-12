@@ -9,4 +9,3 @@ duckduckgo_search==8.0.0
 yfinance==0.2.55
 langsmith
 portkey_ai
-groq
