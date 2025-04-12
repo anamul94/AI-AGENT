@@ -2,6 +2,15 @@ import streamlit as st
 from agents import app
 from phi_agents import finance_agent
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+
+
 st.set_page_config(page_title="📈 Finance Analysis Bot", layout="centered")
 st.title("📈 Finance Investment Advisor")
 
