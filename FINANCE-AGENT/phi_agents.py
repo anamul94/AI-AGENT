@@ -6,6 +6,10 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
+os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+
+
 # Define the model to be used by the agent
 model = Groq(id="qwen-2.5-32b")  # Replace with your preferred model
 
