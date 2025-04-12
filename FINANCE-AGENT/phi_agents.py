@@ -16,6 +16,7 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 model = Groq(
     id="qwen-2.5-32b",
     default_headers=createHeaders(
+        provider="groq",
         api_key=os.getenv("PORTKEY_API_KEY"),  # Replace with your Portkey API key
     ),
 )  # Replace with your preferred model
