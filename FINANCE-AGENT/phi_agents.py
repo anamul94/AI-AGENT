@@ -3,6 +3,8 @@ from phi.agent import Agent
 from phi.tools.yfinance import YFinanceTools
 from phi.model.groq import Groq
 from dotenv import load_dotenv
+from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
+
 import os
 load_dotenv()
 
@@ -11,7 +13,12 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 
 # Define the model to be used by the agent
-model = Groq(id="qwen-2.5-32b")  # Replace with your preferred model
+model = Groq(
+    id="qwen-2.5-32b",
+    default_headers=createHeaders(
+        api_key=os.getenv("PORTKEY_API_KEY"),  # Replace with your Portkey API key
+    ),
+)  # Replace with your preferred model
 
 # Create the Finance Agent
 finance_agent = Agent(
