@@ -1,6 +1,6 @@
-# YT-Blog Post Generator
+# Finance Agent
 ## Description
-It will summarize the youtube video
+It will provide financial insights and recommendations based on user input.
 ## Prerequisites
 - Provide Groq[https://groq.com] API key in .env file
 - 
