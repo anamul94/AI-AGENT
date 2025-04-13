@@ -4,8 +4,9 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from agents.agents import app  # replace with your actual filename if needed
 
 st.set_page_config(page_title="PubMed Chat", page_icon="🧬")
-
 st.title("🔍 PubMed Research Assistant")
+st.subheader("🧬 Allows doctors and researchers to query PubMed using natural language")
+st.write("Example: What is the latest research on COVID-19?")
 
 # Generate and store a thread UUID per session
 if "thread_id" not in st.session_state:
@@ -24,7 +25,7 @@ if user_input:
     # Invoke LangGraph app
     config = {"configurable": {"thread_id": st.session_state.thread_id}}
     user_message = HumanMessage(content=user_input)
-    system_message = SystemMessage(content="You are a helpful assistant. For medical research, you can search PubMed and summarize the results. Add references(title of paper) to your answers.")
+    system_message = SystemMessage(content="You are a helpful assistant. For medical research, you can search PubMed and summarize the results. Add references to your answers.")
     response = app.invoke({"messages": [system_message, user_message]}, config=config)
 
     messages = response["messages"][-1]
