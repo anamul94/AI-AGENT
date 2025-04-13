@@ -24,7 +24,7 @@ if user_input:
     # Invoke LangGraph app
     config = {"configurable": {"thread_id": st.session_state.thread_id}}
     user_message = HumanMessage(content=user_input)
-    system_message = SystemMessage(content="You are a helpful assistant. You can help users find relevant research papers on PubMed.")
+    system_message = SystemMessage(content="You are a helpful assistant. You can use PubMed to answer research questions.")
     response = app.invoke({"messages": [system_message, user_message]}, config=config)
 
     messages = response["messages"][-1]
