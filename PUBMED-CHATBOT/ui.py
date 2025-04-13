@@ -1,6 +1,6 @@
 import streamlit as st
 import uuid
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from agents.agents import app  # replace with your actual filename if needed
 
 st.set_page_config(page_title="PubMed Chat", page_icon="🧬")
@@ -24,7 +24,8 @@ if user_input:
     # Invoke LangGraph app
     config = {"configurable": {"thread_id": st.session_state.thread_id}}
     user_message = HumanMessage(content=user_input)
-    response = app.invoke({"messages": [user_message]}, config=config)
+    system_message = SystemMessage(content="You are a helpful assistant. You can help users find relevant research papers on PubMed.")
+    response = app.invoke({"messages": [system_message, user_message]}, config=config)
 
     messages = response["messages"][-1]
     st.write(messages.content)
