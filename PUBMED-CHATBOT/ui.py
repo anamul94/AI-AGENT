@@ -25,7 +25,15 @@ if user_input:
     # Invoke LangGraph app
     config = {"configurable": {"thread_id": st.session_state.thread_id}}
     user_message = HumanMessage(content=user_input)
-    system_message = SystemMessage(content="You are a helpful assistant. For medical research, you can search PubMed and summarize the results. Add references to your answers.")
+    system_message = SystemMessage(
+    content=(
+        "You are a knowledgeable and helpful medical research assistant. "
+        "When responding to user queries, search PubMed for relevant peer-reviewed articles. "
+        "Summarize the findings clearly and concisely using a structured format (e.g., bullet points or sections). "
+        "Ensure all responses are accurate, medically sound, and include references with PubMed links or article titles. "
+        "If a follow-up question is asked, maintain the context of the previous conversation."
+    )
+)   
     response = app.invoke({"messages": [system_message, user_message]}, config=config)
 
     messages = response["messages"][-1]
