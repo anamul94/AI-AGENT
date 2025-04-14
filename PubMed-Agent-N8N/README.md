@@ -1,5 +1,5 @@
 # PubMed Agent Powered by N8N
-## ## Example of MCP Server Integration with n8n
+## Example of MCP Server Integration with n8n
 
 This repository demonstrates how to integrate a custom MCP (Multi-Component Protocol) Server with **n8n**, enabling advanced workflows such as querying the **PubMed** API for biomedical research.
 
